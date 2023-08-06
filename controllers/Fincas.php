@@ -15,8 +15,24 @@
         {
             $data = $this->model->getFincas(1);
             for ($i=0; $i < count($data); $i++) { 
-                $data[$i]['foto'] = '<div>
-            
+
+                if($data[$i]['foto'] !=""){
+                    $data[$i]['foto'] = '<div>
+                        <center><a href="'.$data[$i]['foto'].'" class="btn btn-info btn-sm" target="_blank" onclick="eliminarUsuario(' . $data[$i]['id'] . ')"><i class="fa fa-eye"></i></a></center>
+                    </div>';
+                }else{
+                    $data[$i]['foto'] = '';
+                }
+
+                $data[$i]['latlong'] = '<div>
+                    <center><a href="https://earth.google.com/web/search/'.$data[$i]['latlong'].'" target="_blank">'.$data[$i]['latlong'].'</a></center>
+                </div>';
+                
+                /*$data[$i]['latlong'] = '<div>
+                    <center><a href="https://maps.google.com/?q='.$data[$i]['latlong'].'&z=2&t=k" target="_blank">'.$data[$i]['latlong'].'</a></center>
+                </div>';*/
+
+                $data[$i]['archivosadjuntos'] = '<div>
                     <center><a href="../myfilemgr/index.php" target="_blank" class="btn btn-primary" type="button" onclick="eliminarUsuario(' . $data[$i]['id'] . ')"><i class="fas fa-link"></i></a></center>
                 </div>';
 
@@ -31,20 +47,30 @@
         }
         public function registrar()
         {   
-            if (isset($_POST['codigo']) && isset($_POST['nombre'])){
+            
+            if (isset($_POST['codigo'])){
                 $codigo = strClean($_POST['codigo']);
-                $nombre = strClean($_POST['nombre']);
+                //$nombre = strClean($_POST['nombre']);
                 $precio_compra = strClean($_POST['precio_compra']);
                 $precio_venta = strClean($_POST['precio_venta']);
-                $ubicacion = strClean($_POST['cantidad']);
-                $p_registral = strClean($_POST['id_medidad']);
+                $ubicacion = strClean($_POST['ubicacion']);
+                $p_registral = strClean($_POST['p_registral']);
                 $id_categoria = strClean($_POST['id_categoria']);
                 $foto = $_FILES['foto'];
                 $name = $foto['name'];
                 $tmp = $foto['tmp_name'];
+
+                date_default_timezone_set("America/Lima"); // formato de fecha de America/Lima
                 $fecha = date('YmdHis');
-                $destino = 'assets/images/fincas/' .  $fecha . '.jpg';
-                $data = $this->model->registrar($codigo, $nombre, $precio_compra, $precio_venta, $ubicacion,
+
+                if($name == ""){
+                    $destino = "";
+                }else{
+                    $destino = 'assets/images/fincas/' .  $fecha . '.jpg';
+                    move_uploaded_file($tmp, $destino);
+                }
+                
+                $data = $this->model->registrar($codigo, $precio_compra, $precio_venta, $ubicacion,
                 $id_categoria, $destino);
             }
         }

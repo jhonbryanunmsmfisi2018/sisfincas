@@ -82,8 +82,6 @@
 						</li>
 						<li> <a href="<?php echo BASE_URL . 'fincas'; ?>">    <i class="bx bx-right-arrow-alt"></i>FINCAS</a>
 						</li>
-						<li> <a href="<?php echo BASE_URL . 'consecionarios'; ?>">    <i class="bx bx-right-arrow-alt"></i>CONCESIONARIOS</a>
-						</li>
 					</ul>
 				</li>
 				<li>

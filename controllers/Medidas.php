@@ -16,9 +16,9 @@ class Medidas extends Controller
         $data = $this->model->getMedidas(1);
         for ($i = 0; $i < count($data); $i++) {
             $data[$i]['acciones'] = '<div>
-            <button class="btn btn-danger" type="button" onclick="eliminarMedida(' . $data[$i]['id'] . ')"><i class="fas fa-trash"></i></button>
-            <button class="btn btn-info" type="button" onclick="editarMedida(' . $data[$i]['id'] . ')"><i class="fas fa-edit"></i></button>
-            </div>';
+                                        <button class="btn btn-danger" type="button" onclick="eliminarMedida(' . $data[$i]['id'] . ')"><i class="fas fa-trash"></i></button>
+                                        <button class="btn btn-info" type="button" onclick="editarMedida(' . $data[$i]['id'] . ')"><i class="fas fa-edit"></i></button>
+                                    </div>';
         }
         echo json_encode($data, JSON_UNESCAPED_UNICODE);
         die();

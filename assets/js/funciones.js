@@ -13,6 +13,7 @@ app.use((req, res, next) => {
 
 function insertarRegistros(url, idFormulario, tbl, idButton, accion) {
 
+    console.log(idFormulario);
     //crear forData
     const data = new FormData(idFormulario);
     //hacer una instancia del objeto XMLHttpRequest 

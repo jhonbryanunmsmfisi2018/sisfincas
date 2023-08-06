@@ -2,6 +2,11 @@ let tblFincas;
 const formulario = document.querySelector('#formulario');
 const btnAccion = document.querySelector('#btnAccion');
 
+//para adjuntar archivos
+const formulariopredios = document.querySelector('#formulariopredios');
+const btnAccionArchivosadjuntos = document.querySelector('#btnAccionArchivosadjuntos');
+
+
 document.addEventListener('DOMContentLoaded', function () {
     //cargar datos con el plugin datables 
     tblFincas = $('#tblFincas').DataTable({
@@ -11,13 +16,13 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         columns: [
             { data: 'codigo' },
-            { data: 'descripcion' },
-            { data: 'precio_compra' },
-            { data: 'precio_venta' },
-            { data: 'cantidad' },
-            { data: 'medida' },
+            { data: 'nombre_predio' },
+            { data: 'latlong' },
+            { data: 'valor' },
+            { data: 'departamento' },
             { data: 'categoria' },
             { data: 'foto' },
+            { data: 'archivosadjuntos' },
             { data: 'acciones' }
         ],
         languaje: {
@@ -34,6 +39,6 @@ document.addEventListener('DOMContentLoaded', function () {
     formulario.addEventListener('submit', function(e){
         e.preventDefault();
         const url = base_url + 'fincas/registrar';        
-        insertarRegistros(url, this, tblFincas, btnAccion, true);
+        insertarRegistros(url, this, tblFincas, btnAccion, false);
     })
 })
