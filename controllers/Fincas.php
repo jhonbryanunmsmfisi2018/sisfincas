@@ -33,7 +33,7 @@
                 </div>';*/
 
                 $data[$i]['archivosadjuntos'] = '<div>
-                    <center><a href="../myfilemgr/index.php" target="_blank" class="btn btn-primary" type="button" onclick="eliminarUsuario(' . $data[$i]['id'] . ')"><i class="fas fa-link"></i></a></center>
+                    <center><a href="#" class="btn btn-primary" type="button" onclick="mostrarArchivos(' . $data[$i]['id'] . ')"><i class="fas fa-link"></i></a></center>
                 </div>';
 
                 $data[$i]['acciones'] = '<div>
@@ -45,6 +45,29 @@
             echo json_encode($data, JSON_UNESCAPED_UNICODE);
             die();
         }
+
+        public function listararchivosadjuntos()
+        {
+            $id_predio = $_GET["id"];
+            $data = $this->model->getFincasArchivosadjuntos($id_predio);
+            for ($i=0; $i < count($data); $i++) { 
+
+                if($data[$i]['ruta'] !=""){
+                    $data[$i]['ruta'] = '<div>
+                        <center><a href="'.$data[$i]['ruta'].'" class="btn btn-info btn-sm" target="_blank" onclick="eliminarUsuario(' . $data[$i]['id'] . ')"><i class="fa fa-eye"></i></a></center>
+                    </div>';
+                }else{
+                    $data[$i]['ruta'] = '';
+                }
+
+                $data[$i]['acciones'] = '<div>
+                                            <button class="btn btn-danger" type="button" onclick="eliminarUsuario(' . $data[$i]['id'] . ')"><i class="fas fa-times-circle"></i></button>
+                                        </div>';
+            }
+            echo json_encode($data, JSON_UNESCAPED_UNICODE);
+            die();
+        }
+
         public function registrar()
         {   
             
@@ -72,6 +95,30 @@
                 
                 $data = $this->model->registrar($codigo, $precio_compra, $precio_venta, $ubicacion,
                 $id_categoria, $destino);
+            }
+        }
+
+        public function registrararchivosadjuntos()
+        {   
+            
+            if (isset($_POST['nombre_archivo'])){
+                $nombre_archivo = strClean($_POST['nombre_archivo']);
+                $id_predio = ($_POST['id_predio']);
+                $foto = $_FILES['foto'];
+                $name = $foto['name'];
+                $tmp = $foto['tmp_name'];
+
+                date_default_timezone_set("America/Lima"); // formato de fecha de America/Lima
+                $fecha = date('YmdHis');
+
+                if($name == ""){
+                    $destino = "";
+                }else{
+                    $destino = 'assets/images/archivospredios/' .  $fecha . '.jpg';
+                    move_uploaded_file($tmp, $destino);
+                }
+                
+                $data = $this->model->registrararchivosadjuntos($nombre_archivo,$destino,$id_predio);
             }
         }
          

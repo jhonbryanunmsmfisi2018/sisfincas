@@ -23,10 +23,12 @@ function insertarRegistros(url, idFormulario, tbl, idButton, accion) {
     //Enviar datos
     http.send(data);
     //verificar estados
+
     http.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             // const res = JSON.parse(this.responseText);   
             // console.log(this.responseText);
+
             const res = JSON.parse(this.responseText);
             Swal.fire({
                 toast: true,
@@ -40,6 +42,7 @@ function insertarRegistros(url, idFormulario, tbl, idButton, accion) {
                 if (accion) {
                     clave.removeAttribute('readonly');
                 }
+
                 if (tbl != null) {
                     document.querySelector('#id').value = '';
                     idButton.textContent = 'Registrar';
@@ -47,6 +50,39 @@ function insertarRegistros(url, idFormulario, tbl, idButton, accion) {
                     tbl.ajax.reload();
                 }
             }
+        }
+    }
+}
+
+//caso de registro de archivos adjuntos (no funcionaba con la funcion de arriba)
+function insertarRegistrosOpcional(url, idFormulario, tbl, idButton, accion) {
+    //crear forData
+    const data = new FormData(idFormulario);
+    //hacer una instancia del objeto XMLHttpRequest 
+    const http = new XMLHttpRequest();
+    //abrir una conexión - POST -GET
+    http.open('POST', url, true);
+    //Enviar datos
+    http.send(data);
+    //verificar estados
+
+    http.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            // const res = JSON.parse(this.responseText);   
+            // console.log(this.responseText);
+
+            Swal.fire({
+                toast: true,
+                position: 'top-right',
+                icon: "success",
+                title: "Correcto",
+                showConfirmButton: false,
+                timer: 2000
+            })
+
+            idFormulario.reset();
+            //tbl.ajax.reload();
+            actualizartabla();
         }
     }
 }

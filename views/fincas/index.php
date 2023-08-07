@@ -119,7 +119,7 @@
 
             <div class="tab-pane fade p-3" id="nav-archivosadjuntos" role="tabpanel" aria-labelledby="nav-archivosadjuntos-tab" tabindex="0">
                 <form id="formulariopredios" autocomplete="off">
-                    <input type="hidden" id="id" name="id">
+                    <input type="hidden" id="id_predio" name="id_predio">
                     <div class="row mb-3">
                         <div class="col-md-4 mb-3">
                             <label for="nombre_archivo">Nombre de archivo</label>
@@ -144,36 +144,18 @@
                 </form>
 
                 
-                <div>
-                    <table id="archivosadjuntospredios" class="table table-striped table-bordered" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>Nombre del archivo</th>
-                                <th>Ver</th>
-                                <th>Eliminar</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                            </tr>
-                            <tr>
-                                <td>Garrett Winters</td>
-                                <td>Accountant</td>
-                                <td>Tokyo</td>
-                            </tr>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th>Nombre del archivo</th>
-                                <th>Ver</th>
-                                <th>Eliminar</th>
-                            </tr>
-                        </tfoot>
-                    </table>
-                </div>
+                <table class="table table-striped table-bordered" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Nombre del archivo</th>
+                            <th>Ver</th>
+                            <th>Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divarchivosadjuntos">
+
+                </tbody>
+                </table>
             </div>
 
 
