@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-08-2023 a las 01:55:01
+-- Tiempo de generación: 07-08-2023 a las 03:58:49
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -51,6 +51,75 @@ CREATE TABLE `apartados` (
   `estado` int(11) NOT NULL,
   `ir_cliente` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `archivospredios`
+--
+
+CREATE TABLE `archivospredios` (
+  `id` int(11) NOT NULL,
+  `nombre_archivo` varchar(500) NOT NULL,
+  `ruta` varchar(500) NOT NULL,
+  `id_predio` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `archivospredios`
+--
+
+INSERT INTO `archivospredios` (`id`, `nombre_archivo`, `ruta`, `id_predio`) VALUES
+(1, 'archvvooo', 'assets/images/archivospredios/20230806190917.jpg', 0),
+(2, 'predio 3', 'assets/images/archivospredios/20230806192209.jpg', 3),
+(3, 'arhivo de predio 3', 'assets/images/archivospredios/20230806193055.jpg', 3),
+(4, 'arhivo de predio 3', 'assets/images/archivospredios/20230806193105.jpg', 3),
+(5, 'jhk', 'assets/images/archivospredios/20230806193331.jpg', 0),
+(6, 'jhk', 'assets/images/archivospredios/20230806193344.jpg', 0),
+(7, 'kjnkj', 'assets/images/archivospredios/20230806193404.jpg', 0),
+(8, 'asd', 'assets/images/archivospredios/20230806193450.jpg', 0),
+(9, 'asd', 'assets/images/archivospredios/20230806193510.jpg', 0),
+(10, 'sdv', 'assets/images/archivospredios/20230806193530.jpg', 0),
+(11, 'sdgsdf', 'assets/images/archivospredios/20230806193550.jpg', 0),
+(12, 'sdg', 'assets/images/archivospredios/20230806193615.jpg', 0),
+(13, 'sdg', 'assets/images/archivospredios/20230806193825.jpg', 0),
+(14, 'sdf', 'assets/images/archivospredios/20230806193905.jpg', 0),
+(15, 'asdf', 'assets/images/archivospredios/20230806194007.jpg', 0),
+(16, 'sdc', 'assets/images/archivospredios/20230806194101.jpg', 0),
+(17, '23', 'assets/images/archivospredios/20230806194139.jpg', 0),
+(18, 'asd', 'assets/images/archivospredios/20230806194321.jpg', 0),
+(19, '123', 'assets/images/archivospredios/20230806194730.jpg', 0),
+(20, 'aefas', 'assets/images/archivospredios/20230806194800.jpg', 0),
+(21, 'afgasd', 'assets/images/archivospredios/20230806194819.jpg', 3),
+(22, '43234', 'assets/images/archivospredios/20230806194828.jpg', 0),
+(23, '423', 'assets/images/archivospredios/20230806194907.jpg', 3),
+(24, '5555', 'assets/images/archivospredios/20230806194915.jpg', 3),
+(25, '', '', 3),
+(26, 'gsdfg', 'assets/images/archivospredios/20230806194923.jpg', 3),
+(27, 'zdcfsd', 'assets/images/archivospredios/20230806195913.jpg', 1),
+(28, '222', 'assets/images/archivospredios/20230806195926.jpg', 1),
+(29, '123', 'assets/images/archivospredios/20230806200210.jpg', 2),
+(30, 'adsad', 'assets/images/archivospredios/20230806200734.jpg', 0),
+(31, 'asfsd', 'assets/images/archivospredios/20230806200902.jpg', 2),
+(32, 'sadf', 'assets/images/archivospredios/20230806201007.jpg', 2),
+(33, '123', 'assets/images/archivospredios/20230806201815.jpg', 3),
+(34, 'asda', 'assets/images/archivospredios/20230806201947.jpg', 0),
+(35, 'sdf', 'assets/images/archivospredios/20230806202039.jpg', 3),
+(36, '123', 'assets/images/archivospredios/20230806202244.jpg', 3),
+(37, 'qwe', 'assets/images/archivospredios/20230806202335.jpg', 0),
+(38, '34', 'assets/images/archivospredios/20230806202456.jpg', 0),
+(39, '123', 'assets/images/archivospredios/20230806202714.jpg', 0),
+(40, 'asd', 'assets/images/archivospredios/20230806202803.jpg', 0),
+(41, '123', 'assets/images/archivospredios/20230806203600.jpg', 1),
+(42, '123', 'assets/images/archivospredios/20230806203852.jpg', 0),
+(43, 'asf', 'assets/images/archivospredios/20230806204019.jpg', 0),
+(44, '123', 'assets/images/archivospredios/20230806204111.jpg', 1),
+(45, '123', 'assets/images/archivospredios/20230806204330.jpg', 1),
+(46, '23', 'assets/images/archivospredios/20230806204440.jpg', 1),
+(47, '434', 'assets/images/archivospredios/20230806204559.jpg', 3),
+(48, '123', 'assets/images/archivospredios/20230806204655.jpg', 1),
+(49, '1234', 'assets/images/archivospredios/20230806204926.jpg', 2),
+(50, 'arhcivo51', 'assets/images/archivospredios/20230806205112.jpg', 2);
 
 -- --------------------------------------------------------
 
@@ -1376,6 +1445,12 @@ ALTER TABLE `apartados`
   ADD KEY `ir_cliente` (`ir_cliente`);
 
 --
+-- Indices de la tabla `archivospredios`
+--
+ALTER TABLE `archivospredios`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `cajas`
 --
 ALTER TABLE `cajas`
@@ -1485,6 +1560,12 @@ ALTER TABLE `abonos`
 --
 ALTER TABLE `apartados`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `archivospredios`
+--
+ALTER TABLE `archivospredios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT de la tabla `cajas`
