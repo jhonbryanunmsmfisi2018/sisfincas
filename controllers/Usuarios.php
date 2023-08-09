@@ -1,10 +1,12 @@
 <?php
 class Usuarios extends Controller
-{
+{   
+    
     public function __construct()
     {
         parent::__construct();
         session_start();
+        
     }
     public function index()
     {
@@ -197,4 +199,7 @@ class Usuarios extends Controller
         echo json_encode($res, JSON_UNESCAPED_UNICODE);
         die();
     }
+
+   
 }
+?>

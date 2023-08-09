@@ -4,7 +4,7 @@
     <div class="card-body">
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <button class="nav-link active" id="nav-fincas-tab" data-bs-toggle="tab" data-bs-target="#nav-fincas" type="button" role="tab" aria-controls="nav-fincas" aria-selected="true">Fincas</button>
+                <button class="nav-link active" id="nav-fincas-tab" data-bs-toggle="tab" data-bs-target="#nav-fincas" type="button" role="tab" aria-controls="nav-fincas" aria-selected="true">FINCAS</button>
                 <button class="nav-link" id="nav-nuevo-tab" data-bs-toggle="tab" data-bs-target="#nav-nuevo" type="button" role="tab" aria-controls="nav-nuevo" aria-selected="false">NUEVO</button>
                 <button class="nav-link" id="nav-archivosadjuntos-tab" data-bs-toggle="tab" data-bs-target="#nav-archivosadjuntos" type="button" role="tab" aria-controls="nav-archivosadjuntos" aria-selected="false">ARCHIVOS ADJUNTOS</button>
             </div>
@@ -49,20 +49,20 @@
                             <span id="errorCodigo" class="text-danger"></span>
                         </div>
                         <div class="col-md-9 mb-3">
-                            <label for="precio_compra">Direccion</label>
+                            <label for="direccion">Direccion</label>
                             <div class="input-group">
                                 <span class="input-group-text"><i class="fas fa-barcode"></i></span>
-                                <input class="form-control" type="text" name="precio_compra" id="precio_compra" placeholder="Nombre de Dirección">
+                                <input class="form-control" type="text" name="direccion" id="direccion" placeholder="Nombre de Dirección">
                             </div>
                             <span id="errorDireccion" class="text-danger"></span>
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label for="precio_venta">Lat/Long</label>
+                            <label for="latlong">Lat/Long</label>
                             <div class="input-group">
                                 <span class="input-group-text"><i class="fas fa-barcode"></i></span>
-                                <input class="form-control" type="text" name="precio_venta" id="precio_venta" placeholder="Dirección de Lat/Long">
+                                <input class="form-control" type="text" name="latlong" id="latlong" placeholder="Dirección de Lat/Long">
                             </div>
-                            <span id="errorLat_Long" class="text-danger"></span>
+                            <span id="errorLatlong" class="text-danger"></span>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="valor">Valor Inm</label>
@@ -80,7 +80,7 @@
                             </div>
                             <span id="errorUbicacion" class="text-danger"></span>
                         </div>
-                        <div class="col-md-6 mb-3">
+                        <!-- <div class="col-md-6 mb-3">
                             <label for="p_registral">P. Registral</label>
                             <div class="input-group">
                                 <span class="input-group-text"><i class="fas fa-barcode"></i></span>
@@ -88,7 +88,7 @@
                             </div>
 
                             <span id="errorP_registral" class="text-danger"></span>
-                        </div>
+                        </div> -->
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
                                 <label for="id_categoria">Categoria</label>
@@ -147,6 +147,7 @@
                 <table class="table table-striped table-bordered" style="width:100%">
                     <thead>
                         <tr>
+                            <th>Cod</th>
                             <th>Nombre del archivo</th>
                             <th>Ver</th>
                             <th>Eliminar</th>

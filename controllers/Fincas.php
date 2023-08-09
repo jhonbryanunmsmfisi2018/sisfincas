@@ -74,10 +74,10 @@
             if (isset($_POST['codigo'])){
                 $codigo = strClean($_POST['codigo']);
                 //$nombre = strClean($_POST['nombre']);
-                $precio_compra = strClean($_POST['precio_compra']);
-                $precio_venta = strClean($_POST['precio_venta']);
-                $ubicacion = strClean($_POST['ubicacion']);
-                $p_registral = strClean($_POST['p_registral']);
+                $direccion = strClean($_POST['direccion']);
+                $latlong = strClean($_POST['latlong']);
+                $valor = strClean($_POST['valor']);
+                $ubicacion = strClean($_POST['ubicacion']);                
                 $id_categoria = strClean($_POST['id_categoria']);
                 $foto = $_FILES['foto'];
                 $name = $foto['name'];
@@ -93,8 +93,7 @@
                     move_uploaded_file($tmp, $destino);
                 }
                 
-                $data = $this->model->registrar($codigo, $precio_compra, $precio_venta, $ubicacion,
-                $id_categoria, $destino);
+                $data = $this->model->registrar($codigo, $direccion, $latlong,$valor, $ubicacion, $id_categoria, $destino);
             }
         }
 
@@ -114,12 +113,13 @@
                 if($name == ""){
                     $destino = "";
                 }else{
-                    $destino = 'assets/images/archivospredios/' .  $fecha . '.jpg';
+                    $destino = 'assets/images/archivospredios/' .  $fecha . '.pdf';
                     move_uploaded_file($tmp, $destino);
                 }
                 
                 $data = $this->model->registrararchivosadjuntos($nombre_archivo,$destino,$id_predio);
             }
+            
         }
          
     }

@@ -83,17 +83,18 @@
 						<li> <a href="<?php echo BASE_URL . 'fincas'; ?>">    <i class="bx bx-right-arrow-alt"></i>FINCAS</a>
 						</li>
 					</ul>
-				</li>
+				</li>				
 				<li>
-					<a href="widgets.html">
-						<div class="parent-icon"><i class="fa-solid fa-users"></i>
+					<a href="<?php echo BASE_URL . 'usuarios/profile';?>" class="has-arrow">
+						<div class="parent-icon"><i class="fa-solid fa-clipboard-list"></i>
 						</div>
-						<div class="menu-title">ARRENDATARIOS</div>
+						<div class="menu-title">USUARIOS</div> 
 					</a>
 				</li>
+				
 			           
 				<li>
-					<a href="widgets.html">
+					<a href="<?php echo BASE_URL . 'contable'?>">
 						<div class="parent-icon"><i class="fa-solid fa-users"></i>
 						</div>
 						<div class="menu-title">GESTION CONTABLE</div>

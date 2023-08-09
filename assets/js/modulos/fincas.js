@@ -93,8 +93,8 @@ function actualizartabla(){
                         $(".divarchivosadjuntos").append('<tr>' + 
                             '<td>' + (i+1) + '</td>' +
                             '<td>' + json.trabajadores[i].nombre_archivo + '</td>' +
-                            '<td>' + json.trabajadores[i].ruta + '</td>' +
-                        '</tr>');
+                            '<td><a href="' + json.trabajadores[i].ruta + '"target="_blank"><button class="btn btn-info" type="button"><i class="fas fa-link">' + json.trabajadores[i].ruta + '</i></button></td></a>' +
+                        '</i></tr>');   
                 }
                 
 
